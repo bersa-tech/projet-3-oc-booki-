@@ -1,164 +1,328 @@
-/****** General ***********/
-* {
-  font-family: "Raleway", sans-serif;
-}
-
+/* -------- CSS sur le corps du site, général -------- */
 :root {
+  /* variable */
   --main-color: #0065fc;
   --main-bg-color: #f2f2f2;
-  --filter-bg-color: #deebff;
+  --body-main-color: white;
+  --shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.154);
 }
-
-.fa-solid {
-  color: var(--main-color);
+* {
+  /* CSS général */
+  font-family: "Raleway", sans-serif; /* choix police importé dans le head */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* la taille totale de l'élément n'augmentera pas en ajoutant du padding ou une bordure */
+  list-style: none;
+  border: none;
+  outline: none;
 }
-
-body {
-  display: flex;
-  justify-content: center;
-}
-
-.main-container {
-  width: 100%;
-  max-width: 1440px;
-  padding: 0 50px;
-  box-sizing: border-box;
-}
-
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit; /* conserver une couleur uniforme */
+  text-decoration: none; /* supprimier hyperlien etc */
+}
+html {
+  scroll-behavior: smooth; /* defiliment en douceur vers les liens internes  */
+}
+body {
+  max-width: 1440px; /* respect regles technique */
+  min-width: 393px; /* conserver le wrap responsive mobile */
+  margin: auto;
+  padding: 0 50px;
+  background-color: var(--body-main-color);
+  font-size: 1em;
+}
+/* -------- CSS sur le corps du site, général -------- */
+
+/* -------- Header ok -------- */
+header {
+  height: 80px; /* hauteur du bloc */
+  display: flex; /* utilisation de Flexbox */
+  justify-content: space-between; /* écart entre logo et menu */
+}
+header img {
+  height: 30px; /* Taille hauteur logo */
+  align-self: center; /* centrer un element unique */
+}
+.menu-header {
+  display: flex; /* utilisation de Flexbox */
+  gap: 65px; /* créez un espacement entre les 2 elements */
+}
+.menu-header a {
+  height: 35px; /* créez un écart suffisant pour le border top au survol */
+  display: flex; /* utilisation de Flexbox */
+  align-items: end; /* mettre le texte en fin de bloc afin de créer une marge entre la bordure et le texte */
+}
+.menu-header a:hover {
+  color: var(--main-color); /* texte bleu au survol variable css :root */
+  border-top: solid 2px var(--main-color); /* bordure bleu au top en survol */
+}
+/* -------- Header ok -------- */
+
+/* -------- First-bloc section ok -------- */
+.first-bloc {
+  margin-top: 30px; /* creer un espace au top avec le header */
+}
+.first-bloc h1 {
+  margin-bottom: 8px; /* creer un espace au bottom avec le p */
 }
 
-.section-title {
-  margin: 0;
-  font-size: 22px;
+/* -------- Formulaire .find-city ok -------- */
+.find-city {
+  display: flex; /* utilisation de Flexbox */
+  border: solid 2px var(--main-bg-color); /* bordure formulaire */
+  border-radius: 10px 16px 16px 10px; /* arrondir les coins */
+  margin: 30px 0; /* marge vertical 30px et horizontale de 0px espace avec p et filtres */
+  height: 49px; /* Taille hauteur formulaire */
+  width: fit-content; /* permet d'appater la largeur au formulaire */
+}
+.find-city label {
+  display: flex; /* utilisation de Flexbox */
+  align-items: center; /* aligner le fontawesome au centre axe verticale */
+  justify-content: center; /* aligner le fontawesome au centre axe horizontale */
+  width: 50px; /* largeur du bloc 1 fontawesome */
+  border-radius: 8px 0 0 8px; /* arrondir les coins */
+  background-color: var(--main-bg-color); /* couleur de fond avec la variante */
+}
+.find-city input {
+  padding: 0 25px; /* marge interne afin de centrer le texte */
+  width: 195px; /* largeur du bloc 2 champ de saisie */
+}
+.find-city input:focus::placeholder {
+  opacity: 0; /*  deviens invisible lorsque ce champ de saisie est en focus.*/
+}
+.find-city ::placeholder {
+  font-size: 17px; /* taille police placeholder Marseille */
+  font-weight: 600; /* gras police placeholder Marseille */
+  color: black; /* couleur police placeholder Marseille */
+}
+.find-city button {
+  width: 132px; /* largeur du bloc 3 bouton recherche */
+  background-color: var(--main-color); /* couleur de fond avec la variante */
+  color: white; /* couleur police blanc */
+  font-size: 18px; /* taille police rechercher */
+  font-weight: 600; /* gras police rechercher */
+  border-radius: 0 10px 10px 0; /* arrondir les coins */
+}
+.find-city button:last-child {
+  /* permet de cibler et styliser le dernier élément enfant */
+  display: flex; /* utilisation de Flexbox */
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.307); /* ajout effet ombre different*/
+  align-items: center; /* aligner le fontawesome au centre axe verticale */
+  justify-content: center; /* aligner le fontawesome au centre axe horizontale */
+  border-radius: 15px; /* arrondir les coins */
+  width: 60px; /* largeur bloc loupe */
+  display: none; /* permet de désactiver ce boutton voulu uniquement pour le responsive mobile */
 }
 
-.card {
-  background-color: white;
-  border-radius: 20px;
-  padding: 5px;
-  filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+/* -------- Filtres .myfilters ok -------- */
+.myfilters,
+.myfilters ul,
+.myfilters li {
+  display: flex; /* utilisation de Flexbox */
+  gap: 13px; /* créez un espacement entre les elements */
+}
+.myfilters > h3 {
+  display: flex; /* utilisation de Flexbox */
+  height: 50px; /* Taille bloc h3 filtre */
+  align-items: center; /* aligner au centre axe verticale */
+  justify-content: center; /* aligner au centre axe horizontale */
+}
+.myfilters li {
+  height: 50px; /* Taille des blocs li */
+  padding: 19px; /* ajoute une marge interne */
+  font-size: 15px; /* taille police */
+  border: solid 2px #d9d9d9; /* ajoute une bordure couleur */
+  border-radius: 25px; /* arrondir les coins */
+  align-items: center; /* aligner le fontawesome au centre axe verticale */
+  text-transform: capitalize; /* majuscule la première lettre de chaque mot */
+}
+.myfilters li:hover {
+  background-color: #deebff; /* texte bleu au survol */
+}
+.myfilters i {
+  color: var(--main-color); /* couleur sur les fontawesome avec la variante */
+}
+.myfilters ul {
+  flex-wrap: wrap; /* les éléments peuvent se répartir sur plusieurs lignes responsives */
 }
 
-.card img {
-  object-fit: cover;
+/* -------- Disponibilité ville .available-city ok -------- */
+.available-city P {
+  display: flex; /* utilisation de Flexbox */
+  margin-top: 35px; /* marge verticale au top, espace avec filtres */
+  align-items: center; /* aligner le texte au centre axe verticale */
+  gap: 10px; /* créez un espacement entre les 2 elements */
+}
+.available-city P i {
+  display: flex; /* utilisation de Flexbox */
+  align-items: center; /* aligner le i au centre axe verticale */
+  justify-content: center; /* aligner le i au centre axe horizontale */
+  color: var(--main-color); /* couleur variante pour le i */
+  width: 24px; /* largeur */
+  height: 24px; /* hauteur */
+  border: solid 2px var(--main-bg-color); /* ajoute une bordure couleur variante */
+  border-radius: 50%; /* permet de faire un cercle avec le radius à 50% */
+}
+/* -------- First-bloc section ok -------- */
+/* --------------------------------------- */
+
+/* --------------------------------------- */
+/* -------- Second-bloc section -------- */
+.Second-bloc {
+  margin-top: 35px; /* marge au top, espace avec l'autre section */
+  display: flex; /* utilisation de Flexbox */
+  gap: 40px; /* créez un espacement entre hosting et popular */
 }
 
-.card-title {
-  font-size: 16px;
+/* -------- Hébergements à Marseille ok -------- */
+.hosting {
+  border-radius: 20px; /* arrondir les coins */
+  background-color: var(--main-bg-color); /* couleur de fond avec la variante */
+  padding: 30px; /* ajoute une marge interne */
+  width: 67%; /* largeur en % pour le responsive les 33 restant pour popular */
+}
+.bloc-card-hosting {
+  margin: 30px 0; /* marge vertical 30 marge horizontale 0 */
+  display: flex; /* utilisation de Flexbox */
+  flex-wrap: wrap; /* les éléments peuvent se répartir sur plusieurs lignes responsives */
+  gap: 30px; /* créez un espacement entre les cards */
+}
+.card-hosting {
+  flex-grow: 1; /* permet d'occuper l'espace */
+  flex-basis: 30%; /* permet d'indiquer une taille initiale aux cards */
+  background-color: var(--body-main-color); /* couleur de fond */
+  box-shadow: var(--shadow); /* ombre sur les cards */
+  padding: 5px 5px 10px 5px; /* ajoute une marge interne */
+  border-radius: 20px; /* arrondir les coins des cards */
+}
+.card-hosting img {
+  border-radius: 15px 15px 0 0; /* arrondir les coins */
+  width: 100%; /* largeur à 100% */
+  height: 114px; /* hauteur */
+  object-fit: cover; /* couverture de l'image adapté*/
+  object-position: center; /* centrer l'image */
+}
+.card-content {
+  padding-left: 10px; /* ajoute une marge interne à gauche */
+  letter-spacing: 1px; /* ajout d'espace entre les lettres  */
+}
+.card-content h3 {
+  font-size: 0.9em; /* police taille 90% de l'element parents (teste) */
+  margin: 6px 0 10px; /* marge top 6 marge bottom 10 */
+}
+.card-content p {
+  margin-bottom: 15px; /* marge bottom 15 */
+  font-size: 0.74em; /* police taille 90% de l'element parents (teste) */
+}
+.card-content ul,
+.card-content li {
+  display: flex; /* utilisation de Flexbox */
+  color: var(--main-color); /* variante couleur pour les etoiles */
+  margin-bottom: 5px; /* marge bottom 15 */
+}
+.card-content li:last-child {
+  color: var(
+    --main-bg-color
+  ); /* permet de cibler et styliser la derniere étoile, idem que pour le formulaire */
+}
+.card-content span {
+  font-weight: 800; /* mettre en gras le sigle euro */
+}
+.hosting a:last-child {
+  font-weight: 800; /* permet de cibler et styliser le afficher plus dernier a de hosting */
 }
 
-.euro {
-  font-weight: 700;
+/* -------- Les plus populaires -------- */
+.popular {
+  width: 33%; /* largeur en % pour le responsive */
+  padding: 30px; /* ajoute une marge interne */
+  border-radius: 20px; /* arrondir les coins */
+  background-color: var(--main-bg-color); /* couleur de fond avec variante */
+}
+.popular h2 {
+  display: flex; /* utilisation de Flexbox */
+  justify-content: space-between; /* espace avec le fontawesome */
+  align-items: center; /* centrer le fontawesome */
+}
+.popular h2 i {
+  color: var(--main-color); /* couleur du fontawesome */
+}
+.bloc-card-popular {
+  display: flex; /* utilisation de Flexbox */
+  flex-direction: column; /* mettre les cards en colonne */
+  margin: 30px 0 0; /* marge au top 30px */
+  gap: 30px; /* créez un espacement entre les elements */
 }
 
-.neutral-star {
-  color: var(--main-bg-color);
+.card-popular {
+  padding: 5px; /* ajoute une marge interne */
+  background-color: var(--body-main-color); /* couleur de fond avec variante */
+  box-shadow: var(--shadow); /* ombre card */
+  border-radius: 20px; /* arrondir les coins */
+}
+.card-popular article {
+  display: flex; /* utilisation de Flexbox */
+}
+.card-popular img {
+  border-radius: 15px 0 0 15px; /* arrondir les coins */
+  width: 33%; /* largeur image */
+  height: 132px; /* hauteur image */
+  object-fit: cover; /* couverture de l'image adapté */
+  object-position: center; /* centrer l'image */
 }
 
-/****** Hebergements And Populaires ***********/
-.hebergements-and-populaires {
-  display: flex;
-  justify-content: space-between;
+.card-popular .card-content {
+  display: flex; /* utilisation de Flexbox */
+  width: 67%; /* largeur contenu content */
+  flex-direction: column; /* element en colonne */
+  justify-content: space-between; /* espace entre les etoiles et le texte*/
+  padding-bottom: 5px; /* marge interne bottom */
+}
+/* -------- Second-bloc section ok -------- */
+/* --------------------------------------- */
+
+/* -------- Third-bloc section -------- */
+.third-bloc {
+  margin-top: 35px; /* ajoute une marge au top pour espace avec autre section */
+  padding: 30px; /* ajoute une marge interne */
 }
 
-.hebergements-and-populaires section {
-  background-color: var(--main-bg-color);
-  border-radius: 20px;
-  padding: 30px;
-  box-sizing: border-box;
+/* -------- Activités à Marseille -------- */
+.bloc-card-activities {
+  margin-top: 30px; /* ajoute une marge interne */
+  display: flex; /* utilisation de Flexbox */
+  gap: 30px; /* créez un espacement entre les 2 elements */
 }
-
-/****** Hebergements ***********/
-.hebergements {
-  width: 65%;
+.card-activities {
+  border-radius: 20px; /* arrondir les coins */
+  flex: 1; /* permet d'occuper l'espace */
+  box-shadow: var(--shadow); /* ombre card */
 }
-
-/****** Populaires ***********/
-.populaires {
-  width: 32%;
+.card-activities img {
+  width: 100%; /* largeur image */
+  height: 21.4vw; /* hauteur image */
+  max-height: 380px; /* limite en fontion de height vw image */
+  object-fit: cover; /* couverture de l'image adapté */
+  object-position: center; /* centrer l'image */
+  border-radius: 20px 20px 0 0; /* arrondir les coins top droit et top gauche */
 }
-
-.populaires-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.card-activities h3 {
+  padding: 20px; /* ajoute une marge interne */
+  font-size: 1em; /* police en fonctoin parent */
 }
+/* -------- Third-bloc section ok -------- */
+/* --------------------------------------- */
 
-.populaires-cards .card {
-  display: flex;
-  margin-top: 33px;
+/* -------- Footer ok -------- */
+footer {
+  margin-top: 35px; /* creer une marge top respect figma*/
+  background-color: var(--main-bg-color); /* couleur de fond avec la variante*/
+  display: flex; /* utilisation de Flexbox */
 }
-
-.populaires-cards img {
-  width: 33%;
-  height: 136px;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+.menu-footer {
+  padding: 25px; /* crée une marge interne dans le footer pour écarter le menu-footer */
+  flex: 1; /* etiré sur le bloc */
 }
-
-.populaires-cards .card-content {
-  width: 67%;
-  padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-}
-
-.populaires-cards .card-title {
-  margin-top: 10px;
-  margin-bottom: 4px;
-}
-
-.populaires-cards .card-subtitle {
-  margin: 0;
-}
-
-.populaires-cards .card-rating {
-  margin-bottom: 5px;
-}
-
-/* Le code ci-dessous correspond à la version responsive uniquement */
-
-/****** Media queries ***********/
-/* Medium devices (tablets, less/equal than 1024px) */
-@media (max-width: 1024px) {
-  .hebergements-and-populaires {
-    flex-direction: column;
-  }
-
-  .hebergements {
-    width: 100%;
-  }
-
-  .populaires {
-    width: 100%;
-    margin-top: 50px;
-  }
-
-  .populaires-cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .populaires-cards a {
-    width: 30%;
-  }
-
-  .populaires-cards .card-title {
-    font-size: 14px;
-  }
-
-  .populaires-cards .card-subtitle {
-    font-size: 13px;
-  }
-}
-
-/* Small devices (phones, less than 768px) */
-@media (max-width: 767.98px) {
-  /* ... */
+.menu-footer li {
+  margin-top: 20px; /* crée une marge au top pour écarter le menu-footer */
 }

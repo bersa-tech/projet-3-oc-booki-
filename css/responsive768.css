@@ -1,0 +1,113 @@
+/* ----------------  Media queries ---------------- */
+/*     Small devices (phones, less than 768px)      */
+
+@media screen and (max-width: 767.98px) {
+  /* -------- Body ok -------- */
+  body {
+    padding: 0; /* occuper l'intégralité de la largeur */
+  }
+
+  /* -------- Header ok -------- */
+  header {
+    height: fit-content; /* inclure tous les eléments du header dans le bloc header */
+    flex-direction: column; /* en colonnes afin de mettre menu sous le logo */
+  }
+  header img {
+    height: 25px; /* diminue legerement la taille du logo */
+    margin: 30px; /* marge autour du logo */
+  }
+  .menu-header {
+    gap: 0; /* Aucun espacement entre les 2 éléments a */
+  }
+  .menu-header a {
+    flex: 1; /* permet d'étirer les blocs sur tout la largeur afin d'occuper tout l'espace */
+    align-items: start; /* mettre le texte en début verticalement de bloc afin de créer une marge entre la bordure et le texte */
+    justify-content: center; /* centrer le texte horizontalement dans le bloc */
+  }
+  .menu-header a:hover {
+    border-top: none; /* supprimer la bordure top pour la version mobile */
+    border-bottom: solid 2px var(--main-color); /* bordure bleu en bas en survol */
+  }
+
+  /* -------- First-bloc ok -------- */
+  .first-bloc {
+    margin-top: 0;
+    padding: 40px 20px 0px 20px;
+  }
+
+  /* -------- Formulaire ok -------- */
+  .find-city {
+    width: 100%; /* formulaire occupe la largeur */
+  }
+  .find-city input {
+    flex-grow: 1; /* etendre le input en fonction du responsive*/
+  }
+  .find-city button {
+    display: none; /* faire disparaitre rechercher */
+  }
+  .find-city button:last-child {
+    display: block; /* faire apparaitre la loupe */
+  }
+
+  /* -------- Filtres ok -------- */
+  .myfilters {
+    align-items: start;
+  }
+  .myfilters li {
+    font-size: 13px;
+    flex-basis: 48%;
+  }
+
+  /* -------- Second-bloc ok -------- */
+  .Second-bloc {
+    flex-direction: column-reverse; /* permet d'inverser la div hosting et popular */
+    gap: 0;
+  }
+
+  /* -------- Les plus populaires ok -------- */
+  .popular {
+    width: 100%;
+    padding: 20px;
+    border-radius: 0px;
+    margin-bottom: 20px;
+  }
+
+  .bloc-card-popular {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* -------- Hébergements à Marseille ok -------- */
+  .hosting {
+    width: 100%;
+    border-radius: 0px;
+    background-color: var(--body-main-color);
+    padding: 20px;
+  }
+  .bloc-card-hosting {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .card-hosting img {
+    height: 30vw;
+  }
+
+  /* -------- Activités à Marseille ok -------- */
+  .bloc-card-activities {
+    margin-top: 30px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .card-activities img {
+    height: 40vw;
+  }
+
+  /* -------- Footer ok -------- */
+  footer {
+    padding: 20px; /* crée une marge interne dans le footer pour écarter le menu-footer */
+    flex-direction: column; /* passer le menu en colonne version mobi*/
+    gap: 10px; /* espacement entre les blocs */
+  }
+}

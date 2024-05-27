@@ -1,6 +1,6 @@
 # booki-starter-pack
 
-Projet 3 OC BOOKI
+Projet 3 OC BOOKI - Saber
 
 ## Authors
 

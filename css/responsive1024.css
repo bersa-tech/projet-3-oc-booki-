@@ -1,0 +1,38 @@
+/* ----------------  Media queries ---------------- */
+/* Medium devices (tablets, less/equal than 1024px) */
+
+@media screen and (max-width: 1024px) {
+  /* -------- Filtres .myfilters ok -------- */
+  .myfilters {
+    flex-direction: column;
+    align-items: start;
+  }
+  .myfilters li {
+    font-size: 15px;
+  }
+
+  /* -------- Hébergements à Marseille ok -------- */
+  .Second-bloc {
+    flex-direction: column;
+  }
+  .hosting {
+    width: 100%;
+  }
+
+  /* -------- Les plus populaires ok -------- */
+  .popular {
+    width: 100%;
+  }
+  .bloc-card-popular {
+    display: flex;
+    flex-direction: row;
+  }
+  .card-popular {
+    flex: 1;
+  }
+
+  /* -------- Activités à Marseille ok -------- */
+  .card-activities img {
+    height: 18vw;
+  }
+}
