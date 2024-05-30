@@ -25,7 +25,6 @@ html {
 }
 body {
   max-width: 1440px; /* respect regles technique */
-  min-width: 393px; /* conserver le wrap responsive mobile */
   margin: auto;
   padding: 0 50px;
   background-color: var(--body-main-color);
@@ -58,11 +57,11 @@ header img {
 }
 /* -------- Header ok -------- */
 
-/* -------- First-bloc section ok -------- */
-.first-bloc {
+/* -------- findandfilters section ok -------- */
+.findandfilters {
   margin-top: 30px; /* creer un espace au top avec le header */
 }
-.first-bloc h1 {
+.findandfilters h1 {
   margin-bottom: 8px; /* creer un espace au bottom avec le p */
 }
 
@@ -135,6 +134,7 @@ header img {
   border-radius: 25px; /* arrondir les coins */
   align-items: center; /* aligner le fontawesome au centre axe verticale */
   text-transform: capitalize; /* majuscule la première lettre de chaque mot */
+  cursor: pointer; /* changer le curseur de la souris */
 }
 .myfilters li:hover {
   background-color: #deebff; /* texte bleu au survol */
@@ -163,12 +163,12 @@ header img {
   border: solid 2px var(--main-bg-color); /* ajoute une bordure couleur variante */
   border-radius: 50%; /* permet de faire un cercle avec le radius à 50% */
 }
-/* -------- First-bloc section ok -------- */
+/* -------- findandfilters section ok -------- */
 /* --------------------------------------- */
 
 /* --------------------------------------- */
-/* -------- Second-bloc section -------- */
-.Second-bloc {
+/* -------- hosting-popular section -------- */
+.hosting-popular {
   margin-top: 35px; /* marge au top, espace avec l'autre section */
   display: flex; /* utilisation de Flexbox */
   gap: 40px; /* créez un espacement entre hosting et popular */
@@ -187,6 +187,7 @@ header img {
   flex-wrap: wrap; /* les éléments peuvent se répartir sur plusieurs lignes responsives */
   gap: 30px; /* créez un espacement entre les cards */
 }
+
 .card-hosting {
   flex-grow: 1; /* permet d'occuper l'espace */
   flex-basis: 30%; /* permet d'indiquer une taille initiale aux cards */
@@ -194,6 +195,7 @@ header img {
   box-shadow: var(--shadow); /* ombre sur les cards */
   padding: 5px 5px 10px 5px; /* ajoute une marge interne */
   border-radius: 20px; /* arrondir les coins des cards */
+  transition: 0.3s ease-out; /* transition zoom-out */
 }
 .card-hosting img {
   border-radius: 15px 15px 0 0; /* arrondir les coins */
@@ -202,6 +204,12 @@ header img {
   object-fit: cover; /* couverture de l'image adapté*/
   object-position: center; /* centrer l'image */
 }
+.card-hosting:hover,
+.card-popular:hover {
+  transform: scale(1.08); /* taille du zoom */
+  transition: transform 0.5s; /* vitesse transition zoom-in */
+}
+
 .card-content {
   padding-left: 10px; /* ajoute une marge interne à gauche */
   letter-spacing: 1px; /* ajout d'espace entre les lettres  */
@@ -231,7 +239,9 @@ header img {
 .hosting a:last-child {
   font-weight: 800; /* permet de cibler et styliser le afficher plus dernier a de hosting */
 }
-
+.afficher:hover {
+  color: var(--main-color);
+}
 /* -------- Les plus populaires -------- */
 .popular {
   width: 33%; /* largeur en % pour le responsive */
@@ -259,6 +269,7 @@ header img {
   background-color: var(--body-main-color); /* couleur de fond avec variante */
   box-shadow: var(--shadow); /* ombre card */
   border-radius: 20px; /* arrondir les coins */
+  transition: 0.3s ease-out; /* transition zoom-out */
 }
 .card-popular article {
   display: flex; /* utilisation de Flexbox */
@@ -278,11 +289,11 @@ header img {
   justify-content: space-between; /* espace entre les etoiles et le texte*/
   padding-bottom: 5px; /* marge interne bottom */
 }
-/* -------- Second-bloc section ok -------- */
+/* -------- hosting-popular section ok -------- */
 /* --------------------------------------- */
 
-/* -------- Third-bloc section -------- */
-.third-bloc {
+/* -------- activities-city section -------- */
+.activities-city {
   margin-top: 35px; /* ajoute une marge au top pour espace avec autre section */
   padding: 30px; /* ajoute une marge interne */
 }
@@ -297,6 +308,12 @@ header img {
   border-radius: 20px; /* arrondir les coins */
   flex: 1; /* permet d'occuper l'espace */
   box-shadow: var(--shadow); /* ombre card */
+  transition: 0.4s ease-out; /* transition zoom-out */
+}
+.card-activities:hover {
+  box-shadow: 5px 19px 25px rgba(0, 0, 0, 0.481); /* change l'ombre au survol */
+  transform: scale(1.01); /* taille du zoom */
+  transition: transform 0.3s; /* vitesse transition zoom-in */
 }
 .card-activities img {
   width: 100%; /* largeur image */
@@ -310,7 +327,7 @@ header img {
   padding: 20px; /* ajoute une marge interne */
   font-size: 1em; /* police en fonctoin parent */
 }
-/* -------- Third-bloc section ok -------- */
+/* -------- activities-city section ok -------- */
 /* --------------------------------------- */
 
 /* -------- Footer ok -------- */
